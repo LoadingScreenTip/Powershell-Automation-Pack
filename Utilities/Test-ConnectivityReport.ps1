@@ -35,7 +35,7 @@ $rows = foreach ($t in $Target) {
     Host    = $TargetHost
     Port    = if ($TargetPort){$TargetPort}else{$null}
     PingOK  = [bool]$ping
-    TcpOK   = if ($TargetPort -ne $null){ [bool]$tcp } else { $null }
+    TcpOK   = TcpOK = if ($null -ne $TargetPort) { [bool]$tcp } else { $null }
     Checked = (Get-Date)
   }
 }
