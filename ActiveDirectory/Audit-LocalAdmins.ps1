@@ -2,9 +2,11 @@
 .SYNOPSIS
     Export local Administrators group members from one or more Windows endpoints.
 .DESCRIPTION
-    Uses PowerShell remoting when possible; falls back to local query.
+    Queries locally when ComputerName matches this computer's name; otherwise uses
+    PowerShell remoting. Remote connection failures are reported as '(Unreachable)';
+    no local fallback is attempted.
 .PARAMETER ComputerName
-    One or more computer names (defaults to localhost).
+    One or more computer names (defaults to $env:COMPUTERNAME).
 .PARAMETER ComputerList
     Path to a text file (one hostname per line).
 .PARAMETER ExportPath
